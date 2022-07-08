@@ -56,15 +56,15 @@
     <app-login></app-login>
     <div>
       <label>Name</label><br>
-      <input type="text" name="name" #name/><br>
+      <input type="text" name="name" #name placeholder="{{name}}"><br>
       <label>Mark</label><br>
-      <input type="text" name="mark" #mark/><br>
+      <input type="text" name="mark" #mark placeholder="{{mark}}"/><br>
       <button (click)="TransferDataToChild(name.value,mark.value)">Click Me</button>
   </div>
    <hr><hr>
    <br>
    <div style="background-color: #eee;border:1px solid #2b267c;padding:20px ">
-    <app-child [myObj] = "profileDetails"></app-child>
+    <app-child [myObj] = "profileDetails" (titleUpdateFun)="TransferDataToChild($event,{name,mark})"></app-child>
     <b>{{response}}</b>
   </div>
   </div>
